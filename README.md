@@ -6,17 +6,6 @@ Berbeda dengan program penentuan zodiak biasa yang hanya menggunakan logika `if-
 
 ---
 
-## 📋 Daftar Isi
-
-1. [Fitur Utama](https://www.google.com/search?q=%23-fitur-utama)
-2. [Prasyarat Sistem](https://www.google.com/search?q=%23-prasyarat-sistem)
-3. [Instalasi & Penggunaan](https://www.google.com/search?q=%23-instalasi--penggunaan)
-4. [Penjelasan Kode Secara Mendalam (Line-by-Line)](https://www.google.com/search?q=%23-penjelasan-kode-secara-mendalam)
-5. [Struktur Data](https://www.google.com/search?q=%23-struktur-data)
-6. [Catatan Pengembangan](https://www.google.com/search?q=%23-catatan-pengembangan)
-
----
-
 ## Fitur Utama
 
 * **Akurasi Astronomi**: Menggunakan perhitungan derajat matahari yang tepat, bukan sekadar rentang tanggal kalender.
