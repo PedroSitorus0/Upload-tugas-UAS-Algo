@@ -1,0 +1,141 @@
+:root {
+    --bg-terang: #f0f2ff;
+    --card-bg-terang: #ffffff;
+    --text-color-terang: #333333;
+    --author-colour-terang: #666666;
+    --shadow--terang: rgba(0, 0, 0, 0.1);
+    --btn--bg-terang: #e0e0e0;
+    --btn-text-terang: #333333;
+
+    --bg-gelap: #2c2f33;
+    --card-bg-gelap: #36393f;
+    --text-color-gelap: #f0f6fc;
+    --author-colour-gelap: #bbbbbb;
+    --shadow--gelap: rgba(0, 0, 0, 1);
+    --btn--bg-gelap: #50555c;
+    --btn-text-gelap: #333333;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    margin: auto;
+    transition: background-color 1s ease;
+}
+
+body.mode-terang {
+    background-color: var(--bg-terang);
+    color: var(--text-color-terang);
+}
+
+body.mode-gelap {
+    background-color: var(--bg-gelap);
+    color: var(--text-color-gelap);
+}
+
+.container {
+    padding: 20px;
+
+}
+
+.kartu-kutipan {
+    background-color: var(--card-bg-terang);
+    border-radius: 25px;
+    padding: 50px 25px;
+    box-shadow: 0 10px 30px var(--shadow--terang);
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+
+}
+
+body.container.mode-gelap .kartu-kutipan {
+    background-color: var(--card-bg-gelap);
+    box-shadow: 0 10px 30px var(--shadow--gelap);
+}
+
+.kutipan {
+    font-size: 1.8cm;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--text-color-terang);
+    transition: color 0.5s ease;
+}
+
+body.mode-gelap .kutipan  {
+    color: var(--text-color-gelap);
+
+}
+
+.author {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--author-colour-terang);
+    margin-top: 20px;
+    transition: color 0.5s ease;
+}
+
+body.mode-gelap .author {
+    color: var(--author-colour-gelap);
+
+}
+
+.tema-toggle-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--author-colour-terang);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.2em;
+    box-shadow: 0 2px rgba(0, 0, 0, 2);
+}
+
+.body.mode-gelap .tema-toggle-btn {
+    background-color: var(--btn--bg-gelap);
+
+
+}
+
+.tema-toggle-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0.3s ease;
+
+}
+
+.tema-toggle-btn .icon {
+    transition: opacity 0.3s ease;
+}
+
+.tema-toggle-btn .icon-gelap {
+    display: none;
+}
+.body.mode-gelap .tema-toggle-btn .icon-terang {
+    display: none;
+}
+
+.body.mode-gelap .tema-toggle-btn .icon-gelap {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .kartu-kutipan {
+        margin: 15px;
+        padding: 30px 20px;
+    }
+    .author {
+        font-size: 1.4em;
+    }
+    .author {
+        font-size: 1em;
+    }
+}
