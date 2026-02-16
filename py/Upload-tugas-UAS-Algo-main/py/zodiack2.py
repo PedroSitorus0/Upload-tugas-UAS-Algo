@@ -50,7 +50,7 @@ def main():
     # 3. Panggil Program Interaktif (Input Manual)
     # Katup dibuka di sini
     print(">>> Masuk ke Menu Cek Zodiak Personal...")
-    # zodiak.main()
+    zodiak.main()
 
 if __name__ == "__main__":
     main()

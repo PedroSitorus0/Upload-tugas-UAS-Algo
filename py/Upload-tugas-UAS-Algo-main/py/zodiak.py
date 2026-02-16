@@ -2,7 +2,7 @@ import sys
 from kerykeion import AstrologicalSubject
 
 # Database Kata-kata (Tetap Nama Lengkap agar rapi saat diprint)
-kata_kata = {
+KATA_KATA = {
     "Aries": "Energi bulan ini memanggilmu untuk memulai petualangan baru. Jangan ragu mengambil risiko terukur.",
     "Taurus": "Kesabaran adalah kunci. Fokus pada stabilitas keuangan dan nikmati prosesnya.",
     "Gemini": "Komunikasimu sedang sangat baik. Waktu yang tepat untuk memperluas jaringan atau belajar skill baru.",
@@ -17,7 +17,7 @@ kata_kata = {
     "Pisces": "Imajinasimu kuat. Salurkan lewat seni atau meditasi untuk ketenangan jiwa."
 }
 
-def zodiak():
+def main():
     print("\n=== PROGRAM CEK ZODIAK & RAMALAN ===")
     print("(Lokasi otomatis diatur oleh sistem)\n")
     nama_input = input("Masukkan Nama Lengkap : ")
@@ -26,35 +26,35 @@ def zodiak():
         tgl_lahir = int(input("Tanggal Lahir (1-31)  : "))
         bln_lahir = int(input("Bulan Lahir (1-12)    : "))
         thn_lahir = int(input("Tahun Lahir (YYYY)    : "))
-        jam_lahir = int(input("masukan Jam Lahir     : "))
-        menit_lahir = int(input("masukan Menit Lahir : "))
     except ValueError:
         print("\n[!] Error: Harap masukkan angka yang valid.")
         sys.exit()
 
     # 2. PROSES
-    lat_fix = -6.2088 # Latitude Jakarta(Lintang)
-    lng_fix = 106.8456 # Longitude Jakarta(Bujur)
-    tz_fix = "Asia/Jakarta" # Zona Waktu Jakarta
+    lat_fix = -6.2088
+    lng_fix = 106.8456
+    tz_fix = "Asia/Jakarta"
 
     try:
         subjek = AstrologicalSubject(
             nama_input, 
             thn_lahir, bln_lahir, tgl_lahir, 
-            jam_lahir, menit_lahir, 
-            lat=lat_fix, lng=lng_fix, tz_str=tz_fix
+            12, 00, 
+            lat=lat_fix, lng=lng_fix, tz_str=tz_fix,
+            city="Jakarta"
         )
         zodiak_raw = subjek.sun['sign']
-        pesan_bulanan = ""
+        pesan_bulanan = "Maaf, ramalan belum tersedia."
         zodiak_display = zodiak_raw 
-        for key in kata_kata:
+        for key in KATA_KATA:
             # Cek apakah Key Dict (Misal "Aries") DIAWALI oleh Output Library ("Ari")
             # "Aries".startswith("Ari") -> True
             if key.startswith(zodiak_raw): 
-                pesan_bulanan = kata_kata[key]
+                pesan_bulanan = KATA_KATA[key]
                 zodiak_display = key # Kita update jadi nama lengkap biar tampilan bagus
                 break
         # -----------------------------------------------
+
         # 3. OUTPUT
         print("\n" + "="*40)
         print(f"Nama          : {subjek.name}")
@@ -62,20 +62,14 @@ def zodiak():
         print("-" * 40)
         # Gunakan zodiak_display agar yang muncul "Aries" bukan "Ari"
         print(f"Zodiak Kamu   : {zodiak_display}") 
-        print(f"Zodiak Kamu   : {zodiak_raw}") 
-        print(f"Kata-kata     : {pesan_bulanan}")
+        print(f"Kata-kata     : \"{pesan_bulanan}\"")
         print("="*40 + "\n")
-        # print(subjek)
-        # print(type(KATA_KATA))
-        # print(type(zodiak_raw))
-        # print(key)
-        print(subjek)
 
     except Exception as e:
         print(f"\n[!] Terjadi kesalahan sistem: {e}")
 
-if __name__ == "__main__":
-    zodiak()
+# if __name__ == "__main__":
+    main()
 
 
 
